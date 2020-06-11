@@ -93,6 +93,12 @@
     "globals": {
       "jQuery": "readonly",
       "wp": "readonly"
+    },
+    "rules": {
+      "linebreak-style": [
+        0,
+        "windows"
+      ]
     }
   },
   "jest": {
