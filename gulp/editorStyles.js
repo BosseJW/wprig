@@ -17,7 +17,7 @@ import { pipeline } from 'mississippi';
 /**
  * Internal dependencies
  */
-import { rootPath, paths, gulpPlugins, isProd } from './constants';
+import { rootPath, paths, PHPCSOptions, gulpPlugins, isProd } from './constants';
 import {
 	getThemeConfig,
 	getStringReplacementTasks,
@@ -36,11 +36,7 @@ export function editorStylesBeforeReplacementStream() {
 			dest: paths.styles.dest,
 			extra: [ paths.config.themeConfig ],
 		} ),
-		gulpPlugins.phpcs( {
-			bin: `${ rootPath }/vendor/bin/phpcs`,
-			standard: 'WordPress',
-			warningSeverity: 0,
-		} ),
+		gulpPlugins.phpcs( PHPCSOptions ),
 		// Log all problems that were found.
 		gulpPlugins.phpcs.reporter( 'log' ),
 	] );
